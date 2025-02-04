@@ -230,4 +230,21 @@
 
 #########################################################
 
-# for loops = execute a block of code 
+# for loops = execute a block of code a fixed number of times
+#             You can iterate over a range, string, sequence, etc.
+
+# for _ in range(10, 0, -1):
+#     print(_)
+# print("HAPPY NEW YEAR!!")
+
+# credit_card = "1234-5678-0912-3456"
+
+# for x in credit_card:
+#     print(x)
+
+# for x in range(21):
+#     if x == 13:
+#         print("Skipped it as it is unlucky!")
+#         continue
+#     else:
+#         print(x)
