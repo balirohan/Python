@@ -248,3 +248,14 @@
 #         continue
 #     else:
 #         print(x)
+
+#########################################################
+
+# nested loop = a loop within another loop (outer, inner)
+#               outer loop:
+#                   inner loop:
+
+# for _ in range(3):
+#     for x in range(1, 10):
+#         print(x, end="")
+#     print("\n")
