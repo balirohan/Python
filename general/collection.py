@@ -1,7 +1,9 @@
 # collection = single "variable" used to store multiple values
-#   List  = [] ordered and changeable. Duplicates OK
-#   Set   = {} unordered and immutable, but Add/Remove OK. NO duplicates
-#   Tuple = () ordered and unchangeable. Duplicates OK. FASTER
+#   List       = [] ordered and changeable. Duplicates OK
+#   Set        = {} unordered and immutable, but Add/Remove OK. NO duplicates
+#   Tuple      = () ordered and unchangeable. Duplicates OK. FASTER
+#   Dictionary = {} ordered and changeable. NO duplicates
+#                   A collection of {key:value} pairs         
 
 
 # LIST  -  UNORDERED & CHANGEABLE
@@ -72,3 +74,51 @@
 
 # for fruit in fruits:
 #     print(fruit)
+
+
+
+
+# DICTIONARY  -  ORDERED & CHANGEABLE
+
+capitals = {"USA": "Washington DC",
+            "India": "New Delhi",
+            "China": "Beijing",
+            "Russia": "Moscow"}
+
+# print(dir(capitals))
+# print(help(dict)
+
+# print(capitals.get("USA"))
+# print(capitals.get("India"))
+
+# if capitals.get("Japan"):
+#     print("That capital exists!")
+# else:
+#     print("That capital doesn't exist.")
+
+# print(capitals)
+
+
+
+# capitals.update({"Germany": "Berlin"})
+# print(capitals.update({"USA": "Detroit"}))
+# capitals.pop("China")
+# capitals.popitem()
+# capitals.clear()
+# print(capitals)
+
+# keys = capitals.keys()
+# for key in keys:
+#     print(key)
+
+# values = capitals.values()
+# for value in values:
+#     print(value)
+
+# items = capitals.items()
+# for key, value in items:
+#     print(f"{key:<7}: {value:<}")
+
+# print(items)
+# print(values)
+# print(keys)
