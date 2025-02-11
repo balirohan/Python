@@ -9,42 +9,28 @@ while is_running:
         if guess == "rock":
             if computer == "paper":
                 print("YOU LOSE.")
-                print(f"Computer chose: {computer}, You chose: {guess}")
-                break
             elif computer == "scissors":
                 print("YOU WIN!")
-                print(f"Computer chose: {computer}, You chose: {guess}")
-                break
             else:
                 print("It's a draw.")
-                print(f"Computer chose: {computer}, You chose: {guess}")
-                break
         elif guess == "paper":
             if computer == "rock":
                 print("YOU WIN!")
-                print(f"Computer chose: {computer}, You chose: {guess}")
-                break
             elif computer == "scissors":
                 print("YOU LOSE.")
-                print(f"Computer chose: {computer}, You chose: {guess}")
-                break
             else:
                 print("It's a draw.")
-                print(f"Computer chose: {computer}, You chose: {guess}")
-                break
-        elif guess == "scissor":
+        elif guess == "scissors":
             if computer == "rock":
                 print("YOU LOSE.")
-                print(f"Computer chose: {computer}, You chose: {guess}")
-                break
             elif computer == "paper":
                 print("YOU WIN!")
-                print(f"Computer chose: {computer}, You chose: {guess}")
-                break
             else:
                 print("It's a draw.")
-                print(f"Computer chose: {computer}, You chose: {guess}")
-                break
     else:
         print(f"{guess} is an invalid input.")
         continue
+    print(f"Computer chose: {computer}, You chose: {guess}")
+    if not input("Do you want to play again? (y/n): ").lower() == "y":
+        print("Hope you had fun!")
+        is_running = False
