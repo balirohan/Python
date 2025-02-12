@@ -301,3 +301,17 @@
 #     print(f"{email} is a valid email.")
 # else:
 #     print(f"{email} is an invalid email. Make sure it contains an '@' and a '.'")
+
+
+#########################################################
+
+# if __name__ == __main__: (this script can be imported OR run standalone)
+#                          Functions and classes in this module can be reused without the main block of code executing
+
+
+# def main():
+#     # Your main program goes here
+#     pass
+
+# if __name__ == '__main__':
+#     main()
