@@ -1,5 +1,12 @@
-{
+[
+  {
     "name": "Spongebob",
     "age": 30,
-    "job": "cook"
-}
+    "job": "Cook"
+  },
+  {
+    "name": "Sandy",
+    "age": 27,
+    "job": "Scientist"
+  }
+]
