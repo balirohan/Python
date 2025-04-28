@@ -12,7 +12,7 @@ class Ship(Sprite):
         self.screen_rect = game.screen.get_rect()
 
         # Load the ship image and it's rect.
-        self.original_image = pygame.image.load('Hands On Learning\images\ship.bmp')
+        self.original_image = pygame.image.load('Hands On Learning/Project 1 - Alien Invasion/images/ship.bmp')
 
         self.new_width = 75
         self.new_height = 75
