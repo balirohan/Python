@@ -1,13 +1,12 @@
 from mcp.server.fastmcp import FastMCP
 import mysql.connector
-import sys # Import sys for stderr
+import sys 
 from datetime import date, datetime
 
-# Database configuration
 DB_CONFIG = {
     "host": "localhost",
     "user": "mcp_user",
-    "password": "Coke@0929", # Make sure this matches your actual user password
+    "password": "Coke@0929",
     "database": "MCP_TEST"
 }
 
@@ -17,9 +16,8 @@ def get_connection():
         conn = mysql.connector.connect(**DB_CONFIG)
         return conn
     except mysql.connector.Error as err:
-        # Print error to stderr so Claude Desktop can log it
         print(f"Database connection error: {err}", file=sys.stderr)
-        raise # Re-raise the exception to inform the calling tool
+        raise 
 
 mcp = FastMCP("MySQL MCP Server")
 
@@ -34,7 +32,7 @@ def create_game_tables() -> dict:
     conn = get_connection()
     cursor = conn.cursor()
     try:
-        # Table for all owned games
+        
         create_games_owned_table_sql = """
         CREATE TABLE IF NOT EXISTS games_owned (
             game_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -46,7 +44,7 @@ def create_game_tables() -> dict:
         """
         cursor.execute(create_games_owned_table_sql)
 
-        # Table for games currently being played (with foreign key to games_owned)
+        
         create_current_games_played_table_sql = """
         CREATE TABLE IF NOT EXISTS current_games_played (
             id INT AUTO_INCREMENT PRIMARY KEY,
