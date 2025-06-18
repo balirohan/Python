@@ -1,8 +1,8 @@
 import asyncio
 from typing import Annotated
 from pathlib import Path
-import os # Import os for environment variables
-from dotenv import load_dotenv # Import load_dotenv
+import os
+from dotenv import load_dotenv
 
 from fastmcp import FastMCP
 from fastmcp.server.auth.providers.bearer import BearerAuthProvider, RSAKeyPair
@@ -15,21 +15,16 @@ import readabilipy
 from pdfminer.high_level import extract_text
 import httpx
 
-# --- CONFIGURATION ---
-# Load environment variables from .env file
-load_dotenv()
 
-# 1. Get the application key from environment variables (e.g., in a .env file)
+load_dotenv()
 TOKEN = os.getenv("PUCH_TOKEN")
 if not TOKEN:
     raise ValueError("PUCH_TOKEN environment variable not set. Please set it in your .env file or system environment.")
 
-# 2. Get your phone number from environment variables
 MY_NUMBER = os.getenv("MY_PHONE_NUMBER")
 if not MY_NUMBER:
     raise ValueError("MY_PHONE_NUMBER environment variable not set. Please set it in your .env file or system environment.")
 
-# 3. Place your resume PDF in the same directory as this script and name it "my_resume.pdf".
 RESUME_FILE_NAME = "my_resume.pdf"
 
 # ---------------------
@@ -128,7 +123,6 @@ mcp = FastMCP(
     auth=SimpleBearerAuthProvider(TOKEN),
 )
 
-# Helper function to read resume text
 async def _read_resume_file() -> str:
     """
     Helper function to find and extract text from the resume PDF.
@@ -145,7 +139,6 @@ async def _read_resume_file() -> str:
     except Exception as e:
         return f"<error>Failed to load or process resume: {e}</error>"
 
-# Tool: resume reader
 ResumeToolDescription = RichToolDescription(
     description="Serves your resume in plain markdown text.",
     use_when="Puch (or anyone) asks for your resume. This must return raw markdown without extra formatting.",
@@ -160,7 +153,6 @@ async def resume() -> str:
     """
     return await _read_resume_file()
 
-# Tool: validate (required by Puch)
 @mcp.tool
 async def validate() -> str:
     """
@@ -168,7 +160,6 @@ async def validate() -> str:
     """
     return MY_NUMBER
 
-# Tool: fetch (general utility)
 FetchToolDescription = RichToolDescription(
     description="Fetch a URL and return its content as simplified markdown.",
     use_when="Use this tool when the user provides a URL and asks for its content, or when you need to browse a webpage.",
@@ -230,7 +221,6 @@ async def fetch(
     return [TextContent(type="text", text=f"{prefix}Contents of {url}:\n{content}")]
 
 
-# New Tool: Job Application Assistant (combines evaluation and conditional cover letter)
 JobApplicationAssistantDescription = RichToolDescription(
     description="Automates job application steps: reads resume, evaluates fit, scores, and conditionally generates a cover letter.",
     use_when="When you want to evaluate a job opportunity against your resume and potentially generate a cover letter in a single step.",
@@ -247,12 +237,10 @@ async def job_application_assistant(
     based on the job description, provides a score out of 10, and if the score is > 7.5,
     generates a custom cover letter. This tool prepares a comprehensive prompt for Puch AI.
     """
-    # Step 1: Read resume using the new helper function
     resume_text = await _read_resume_file()
     if resume_text.startswith("<error>"):
         return f"<error>Failed to retrieve resume: {resume_text}</error>"
 
-    # Step 2 & 3: Prepare the comprehensive prompt for Puch AI
     combined_request = (
         f"Given the following resume and job description:\n\n"
         f"Resume:\n---\n{resume_text}\n---\n\n"
