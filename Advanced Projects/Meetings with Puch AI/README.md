@@ -142,14 +142,50 @@ You will see the message: Starting MCP server on http://0.0.0.0:8085
 4. Provide the URL to Puch AI:
 
   - Chat with Puch AI using the following link - https://s.puch.ai/puchai
-  - Paste the ngrok HTTPS URL into the appropriate field for your custom MCP server.
-Save the configuration.
-Step 7: Interact with Your Calendar via WhatsApp
+  - Connect Puch AI to your MCP server using the following command:
+
+    ```
+    /mcp connect <your-public-ngrok-link>/mcp <your_puch_secret_token>
+    ```
+
+### Step 7: Interact with Your Calendar via WhatsApp
 
 You're all set! You can now send natural language commands to your Puch AI contact on WhatsApp.
 
 Example Commands:
 
 "Schedule a dentist appointment for next Tuesday at 10 AM for 45 minutes."
+
 "What's on my calendar tomorrow?"
+
 "Create an event: 'Team Lunch' at 1 PM on Friday."
+
+
+### Screenshots
+
+**My Google Calendar**
+<img width="1470" alt="Screenshot 2025-06-20 at 10 50 39 AM" src="https://github.com/user-attachments/assets/0efd7a4e-e0ca-45e2-a8b1-96e18c180fc1" />
+
+**Puch AI**
+<img width="969" alt="Screenshot 2025-06-20 at 11 19 36 AM" src="https://github.com/user-attachments/assets/a8068748-aef2-4c25-8223-aedcce219913" />
+
+<img width="962" alt="Screenshot 2025-06-20 at 11 30 37 AM" src="https://github.com/user-attachments/assets/90a5528d-1b6c-4155-a4ac-280a47e506b7" />
+
+
+**Updated Calendar**
+
+<img width="1470" alt="Screenshot 2025-06-20 at 11 26 21 AM" src="https://github.com/user-attachments/assets/ebac17ce-dd34-4cec-be82-fe434a49abfc" />
+
+**Puch AI**
+<img width="970" alt="Screenshot 2025-06-20 at 11 39 48 AM" src="https://github.com/user-attachments/assets/4e656ee1-0ce7-4e74-966a-12b2e49b1f46" />
+
+<img width="973" alt="Screenshot 2025-06-20 at 11 39 58 AM" src="https://github.com/user-attachments/assets/e867e744-cf39-4766-bfba-d68f769194ce" />
+
+**Final Calendar**
+
+<img width="1470" alt="Screenshot 2025-06-20 at 11 40 04 AM" src="https://github.com/user-attachments/assets/9f25c8c7-9d33-48da-b744-580028998346" />
+
+
+
+
+
